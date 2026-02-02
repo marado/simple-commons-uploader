@@ -75,7 +75,7 @@ def _main() -> None:
             [[Category:{cat}]]
             [[Category:Files by {wiki.username}]]""")
 
-            if not wiki.upload(f, f"{b} {i} {date.today()}{ext}", desc):
+            if not wiki.upload(f, f"{b} {i} {timestamp or date.today()}{ext}", desc):
                 fails.append(f)
             i += 1
 
