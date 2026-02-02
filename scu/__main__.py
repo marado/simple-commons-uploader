@@ -59,6 +59,7 @@ def _main() -> None:
                 b, cat = [s.strip() for s in base_dir.name.split("_", 1)]
             else:
                 b = cat = base_dir.name
+            wikicat = "[[Category:" + cat.replace("|", "]][[Category:") + "]]"
 
             desc = dedent(f"""\
             =={{{{int:filedesc}}}}==
@@ -72,7 +73,7 @@ def _main() -> None:
             =={{{{int:license-header}}}}==
             {{{{Self|Cc-by-sa-4.0}}}}
             
-            [[Category:{cat}]]
+            {wikicat}
             [[Category:Files by {wiki.username}]]""")
 
             if not wiki.upload(f, f"{b} {i} {date.today()}{ext}", desc):
